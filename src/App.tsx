@@ -1,28 +1,28 @@
 import './App.css'
 import TableContainer from './components/Table/TableContainer'
-import {  SelectionInterface,SelectionContext  } from './tableContext';
+import { SelectionInterface, SelectionContext, ActionTypes } from './tableContext';
 import data from './data';
-import { useState } from 'react';
+import { useReducer, Dispatch, } from 'react';
+import reducer from './hook'
 
-
-function App() {
+export function App() {
 
   const items = data.map((obj, i) => ({ ...obj, id: i, selected: false }))
 
-  const [showAlert, setShowAlert] = useState(false)
-  const [selectAll, setSelectAll] = useState<boolean | string>(false)
-  const [selectionStore, setSelectionStore] = useState<SelectionInterface['selectionStore']>(items)
-
-  const initialState ={
-    selectAll,
-    showAlert,
-    selectionStore,
-    setShowAlert,
-    setSelectAll,
-    setSelectionStore
+  const initial = {
+    selectAll: false,
+    showAlert: false,
+    selectionStore: items,
+    count: 0,
+    availableFiles: 0,
+    columnNames:['', 'Name', 'Device', 'Path', 'Status'],
+    dispatch: () => { }
   }
-return (
-    <SelectionContext.Provider value={initialState}>
+
+  const [state, dispatch]: [SelectionInterface, Dispatch<ActionTypes>] = useReducer(reducer, initial);
+
+  return (
+    <SelectionContext.Provider value={{ ...state, dispatch }}>
       <TableContainer />
     </SelectionContext.Provider>
 

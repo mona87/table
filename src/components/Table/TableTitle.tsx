@@ -1,7 +1,9 @@
+import { useSelectionContext } from '../../tableContext';
 
 const TableTitle = () => {
 
-	const columnNames = ['', 'Name', 'Device', 'Path', 'Status']
+	const { columnNames } = useSelectionContext();
+
 	return (
 		<div style={tableTitleStyle}>
 			{columnNames.map((name, i) => {
@@ -14,7 +16,7 @@ const TableTitle = () => {
 
 const tableTitleStyle = {
 	display: 'grid',
-	gridTemplateColumns: '50px 150px 200px 2fr 100px',
+	gridTemplateColumns: '50px 150px 200px 2fr 50px 100px',
 	alignItems: 'center',
 	border: '1px solid lightgray',
 	width: '100%',

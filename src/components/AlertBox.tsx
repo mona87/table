@@ -1,15 +1,11 @@
 import Button from "./Button"
 import { useSelectionContext } from '../tableContext';
-import useHook from "../customHooks";
 
 const AlertBox = () => {
 
-	const { selectionStore } = useSelectionContext();
-	const { toggleAlert } = useHook()
+	const { selectionStore, dispatch } = useSelectionContext();
 
-	const handleButton = () => {
-		toggleAlert(false)
-	}
+	const handleButton = () => dispatch({type: 'TOGGLE_ALERT', payload: false})
 
 	return (
 		<div style={alertStyle}>

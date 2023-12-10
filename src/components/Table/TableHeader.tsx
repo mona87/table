@@ -4,21 +4,22 @@ import CheckBox from "../Checkbox"
 import Counter from "../Counter";
 import AlertBox from '../AlertBox';
 import Button from '../Button';
-import useHook from "../../customHooks";
 
 const TableHeader = () => {
 
-	const { selectionStore, selectAll, showAlert, } = useSelectionContext()
-	const { toggleAlert, updateSelectAll, updateCheckbox, handleCounter, getAvailableFiles } = useHook()
+	const { selectionStore, selectAll, showAlert, count, availableFiles, dispatch } = useSelectionContext()
 
 	useEffect(() => {
-		updateSelectAll()
+		dispatch({type: 'UPDATE_SELECT_ALL'})
+		dispatch({type: 'UPDATE_COUNT'})
+		dispatch({type: 'UPDATE_AVAILABLE_FILES'})
 	}, [selectionStore])
 
 	const handleButton = () => {
-		const files = getAvailableFiles().length;
-		if (files) toggleAlert(true)
+		if(availableFiles) dispatch({type: 'TOGGLE_ALERT', payload: true})
 	}
+
+	const handleSelection = () => dispatch({type: 'UPDATE_CHECKBOX'})
 
 	return (
 		<section style={{ width: '100%' }}>
@@ -29,11 +30,11 @@ const TableHeader = () => {
 						height={20}
 						width={20}
 						disabled={showAlert}
-						handleSelection={updateCheckbox} />
+						handleSelection={handleSelection} />
 				</div>
-				<Counter count={handleCounter()} />
+				<Counter count={count} />
 				<Button
-					disabled={showAlert ? true : getAvailableFiles().length ? false : true}
+					disabled={showAlert ? true : availableFiles ? false : true}
 					buttonHandler={handleButton}>
 					Download Selected
 				</Button>
@@ -46,7 +47,7 @@ const TableHeader = () => {
 
 const tableHeaderStyle = {
 	display: 'grid',
-	gridTemplateColumns: '50px 150px 200px 2fr 30px 100px',
+	gridTemplateColumns: '50px 150px 200px 2fr 50px 100px',
 	border: '1px solid lightgray',
 	width: '100%',
 	fontSize: 20,

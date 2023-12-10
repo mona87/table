@@ -1,17 +1,12 @@
 import CheckBox from "../Checkbox";
 import { useSelectionContext } from '../../tableContext';
 import Status from '../Status';
-import useHook  from "../../customHooks";
-
 
 const TableRow = () => {
 
-  const {selectionStore, showAlert } = useSelectionContext();
-  const {toggleCheckbox} = useHook()
+  const {selectionStore, showAlert, dispatch } = useSelectionContext();
 
-  const handleSelection = (id: number) => {
-    toggleCheckbox(id)
-  }
+  const handleSelection = (id: number) => dispatch({type: 'TOGGLE_CHECKBOX', payload: id})
 
   return (
     <>
@@ -19,7 +14,12 @@ const TableRow = () => {
         const { id, selected, name, device, path, status } = obj;
         return (
           <div key={id} style={tableRowStyle(selected)}>
-            <CheckBox disabled={showAlert} selected={selected} height={15} width={15} handleSelection={() => handleSelection(id)} />
+            <CheckBox 
+              disabled={showAlert} 
+              selected={selected} 
+              height={15} width={15} 
+              handleSelection={() => handleSelection(id)} 
+            />
             <div>{name}</div>
             <div>{device}</div>
             <div style={overflow}>{path}</div>
@@ -35,7 +35,7 @@ const TableRow = () => {
 
 const tableRowStyle = (isActive: boolean | string) => ({
   display: 'grid',
-  gridTemplateColumns: '50px 150px 200px 2fr 30px 100px',
+  gridTemplateColumns: '50px 150px 200px 2fr 50px 100px',
   alignItems: 'center',
   border: '1px solid lightgray',
   width: '100%',
