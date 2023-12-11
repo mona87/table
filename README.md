@@ -1,6 +1,6 @@
 # Table Component
 
-##Installation
+## Installation
 
 `code` npm install
 
