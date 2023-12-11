@@ -5,7 +5,7 @@ import TableTitle from '../TableColumnNames/TableColumnNames';
 const TableContainer = () => {
 
 	return (
-		<div style={containerStyle}>
+		<div  role="table" aria-label='table component' style={containerStyle}>
 			<TableHeader />
 			<TableTitle />
 			<TableRow />

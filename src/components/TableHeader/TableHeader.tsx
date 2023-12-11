@@ -13,7 +13,7 @@ const TableHeader = () => {
 		dispatch({type: 'UPDATE_SELECT_ALL_CHECKBOX'})
 		dispatch({type: 'UPDATE_COUNT'})
 		dispatch({type: 'UPDATE_AVAILABLE_FILES'})
-	}, [selectionStore])
+	}, [selectionStore, dispatch])
 
 	const handleButton = () => {
 		if(availableFiles) dispatch({type: 'TOGGLE_ALERT', payload: true})
@@ -22,7 +22,7 @@ const TableHeader = () => {
 	const handleSelection = () => dispatch({type: 'UPDATE_CHECKBOX'})
 
 	return (
-		<section data-testid="table-header" style={{ width: '100%' }}>
+		<section data-testid="table-header" role="row" style={{ width: '100%' }}>
 			<div style={tableHeaderStyle}>
 				<div style={gridItem}>
 					<CheckBox

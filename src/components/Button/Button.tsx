@@ -8,7 +8,6 @@ const Button = ({ children, disabled, buttonHandler }: {
 
   return (
   <button 
-    role="button"
     type="button"
     tabIndex={0}
     aria-label={children}

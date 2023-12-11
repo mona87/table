@@ -9,7 +9,7 @@ const TableRow = () => {
   const handleSelection = (id: number) => dispatch({type: 'TOGGLE_CHECKBOX', payload: id})
 
   return (
-    <div data-testid="table-row">
+    <div data-testid="table-row" role="rowgroup">
       {selectionStore.map(obj => {
         const { id, selected, name, device, path, status } = obj;
         return (

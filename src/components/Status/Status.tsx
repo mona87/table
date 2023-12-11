@@ -12,7 +12,12 @@ const Status = ({ type }: { type: string }) => {
 			default: ''
 		}
 	}
-	return (<img role="img" aria-label={type} src={handleStatusType(type)} />)
+	return (
+		<img 
+			aria-label={type} 
+			aria-labelledby={`${type} status`} 
+			src={handleStatusType(type)} 
+		/>)
 }
 
 

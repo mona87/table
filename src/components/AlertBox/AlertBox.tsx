@@ -10,8 +10,8 @@ const AlertBox = () => {
 	return (
 		<div 
 		role="alertdialog"
-		aria-labelledby="alertBox"
-		aria-describedby="alertForAvailableFiles"
+		aria-labelledby="alert box"
+		aria-describedby="alert for available files"
 		style={alertStyle}>
 			<Button buttonHandler={handleButton}>Close</Button>
 			<section>

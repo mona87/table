@@ -27,18 +27,17 @@ const CheckBox = ({ selected, height, width, handleSelection, disabled }
 		}
 	}, [selected])
 
-
-
 	return (
-		<label>
-			<input
-				role="checkbox"
-				ref={checkboxRef}
-				type="checkbox"
-				style={checkboxStyle(height, width, disabled)}
-				disabled={disabled}
-				onChange={handleSelection} />
-		</label>
+		<input
+			tabIndex={0}
+			ref={checkboxRef}
+			aria-checked={selected ? 'true' : !selected ? 'false' : 'mixed'}
+			type="checkbox"
+			aria-labelledby="checkbox"
+			style={checkboxStyle(height, width, disabled)}
+			disabled={disabled}
+			onChange={handleSelection} />
+
 
 	)
 }
