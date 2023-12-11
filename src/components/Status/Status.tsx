@@ -1,6 +1,7 @@
 
 import circle from '../../assets/circle.svg'
 
+
 const Status = ({ type }: { type: string }) => {
 
 	const handleStatusType = (type: string) => {

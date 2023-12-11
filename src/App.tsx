@@ -15,7 +15,7 @@ export function App() {
     selectionStore: items,
     count: 0,
     availableFiles: 0,
-    columnNames:['', 'Name', 'Device', 'Path', 'Status'],
+    columnNames:['', 'Name', 'Device', 'Path','','Status'],
     dispatch: () => { }
   }
 
@@ -25,6 +25,7 @@ export function App() {
     <TableContext.Provider value={{ ...state, dispatch }}>
       <TableContainer />
     </TableContext.Provider>
+    
 
   )
 }

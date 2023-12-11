@@ -1,5 +1,4 @@
 import { createContext, useContext,  } from "react";
-// import { SelectionContext}
 
 export type ActionTypes =
   | { type: 'UPDATE_SELECT_ALL_CHECKBOX'; }

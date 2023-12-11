@@ -1,14 +1,15 @@
+import { css } from '@emotion/react'
 
 
 const Counter = ({ count }: { count: number }) => {
 	return (
-		<div style={counterStyle}>{count === 0 ? 'None Selected' : `Selected ${count}`}</div>
+		<div css={counterStyle}>{count === 0 ? 'None Selected' : `Selected ${count}`}</div>
 	)
 }
 
-const counterStyle = {
+const counterStyle = css({
 	display: 'flex',
 	alignItems: 'center'
-}
+})
 
 export default Counter

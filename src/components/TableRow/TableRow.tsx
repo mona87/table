@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import CheckBox from "../Checkbox/Checkbox";
 import { useTableContext } from '../../context/tableContext';
 import Status from '../Status/Status';
@@ -9,22 +10,25 @@ const TableRow = () => {
   const handleSelection = (id: number) => dispatch({type: 'TOGGLE_CHECKBOX', payload: id})
 
   return (
-    <div data-testid="table-row" role="rowgroup">
+    <div data-testid="table-row" role="rowgroup" css={overflow}>
       {selectionStore.map(obj => {
         const { id, selected, name, device, path, status } = obj;
         return (
-          <div  role="listitem" key={id} style={tableRowStyle(selected)}>
+          <div className="grid"  role="listitem" key={id} css={tableRowStyle(selected)}>
+            <div className="center">
             <CheckBox 
               disabled={showAlert} 
               selected={selected} 
               height={15} width={15} 
               handleSelection={() => handleSelection(id)} 
             />
+            </div>
+            
             <div>{name}</div>
-            <div>{device}</div>
-            <div style={overflow}>{path}</div>
+            <div >{device}</div>
+            <div >{path}</div>
              <Status type={status === 'Available' ? 'active' : 'none'} />
-            <div style={statusStyle}>{status}</div>
+            <div>{status}</div>
           </div>
         )
       })}
@@ -33,31 +37,29 @@ const TableRow = () => {
   )
 }
 
-const tableRowStyle = (isActive: boolean | string) => ({
+const tableRowStyle = (isActive: boolean | string) => css({
   display: 'grid',
-  gridTemplateColumns: '50px 150px 200px 2fr 50px 100px',
+  gridTemplateColumns: '50px 1fr 1fr 3fr 50px 100px',
   alignItems: 'center',
-  border: '1px solid lightgray',
+  border: '1px solid #d3d3d3',
   width: '100%',
-  backgroundColor: isActive ? 'lightgray' : 'transparent',
+  fontWeight: 300,
+  backgroundColor: isActive ? '#d9d9d9' : 'transparent',
   height: 45,
   '&:hover': {
-    backgroundColor: 'green'
+    backgroundColor: '#f2f2f2'
+  },
+  '& > div':{
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    paddingRight: 10
   }
 })
 
-const overflow = {
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-
-}
-
-const statusStyle ={
-  display: 'flex',
-  alignItems: 'center'
-}
-
+const overflow = css({
+  overflowY: 'scroll',
+})
 
 
 

@@ -1,3 +1,5 @@
+import { css } from '@emotion/react'
+import download from '../../assets/download.svg'
 import { useTableContext } from '../../context/tableContext';
 import { useEffect } from 'react';
 import CheckBox from "../Checkbox/Checkbox"
@@ -22,9 +24,9 @@ const TableHeader = () => {
 	const handleSelection = () => dispatch({type: 'UPDATE_CHECKBOX'})
 
 	return (
-		<section data-testid="table-header" role="row" style={{ width: '100%' }}>
-			<div style={tableHeaderStyle}>
-				<div style={gridItem}>
+		<section data-testid="table-header" role="row" css={{ width: '100%' }}>
+			<div css={tableHeaderStyle}>
+				<div className='center' css={gridItem}>
 					<CheckBox
 						selected={selectAll}
 						height={20}
@@ -34,6 +36,7 @@ const TableHeader = () => {
 				</div>
 				<Counter count={count} />
 				<Button
+					icon={download}
 					disabled={showAlert ? true : availableFiles ? false : true}
 					buttonHandler={handleButton}>
 					Download Selected
@@ -45,25 +48,21 @@ const TableHeader = () => {
 }
 
 
-const tableHeaderStyle = {
+const tableHeaderStyle = css({
 	display: 'grid',
-	gridTemplateColumns: '50px 150px 200px 2fr 50px 100px',
-	border: '1px solid lightgray',
+	gridTemplateColumns: '50px 140px 200px 2fr 50px 100px',
+	border: '1px solid #d3d3d3',
 	width: '100%',
 	fontSize: 20,
 	cursor: ''
 
-}
+})
 
-const gridItem = {
+const gridItem = css({
 	display: 'flex',
 	alignItems: 'center',
-	//   border: '1px solid lightgray',
 	height: 60,
-	'&:firstOfType': {
-		justifyContent: 'center'
-	}
-}
+})
 
 
 export default TableHeader

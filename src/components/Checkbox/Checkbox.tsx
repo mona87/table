@@ -1,5 +1,6 @@
 
 import { useRef, useEffect } from 'react';
+import { css } from '@emotion/react'
 
 
 const CheckBox = ({ selected, height, width, handleSelection, disabled }
@@ -28,21 +29,23 @@ const CheckBox = ({ selected, height, width, handleSelection, disabled }
 	}, [selected])
 
 	return (
+		<>
 		<input
 			tabIndex={0}
 			ref={checkboxRef}
+			id="table-checkbox"
 			aria-checked={selected ? 'true' : !selected ? 'false' : 'mixed'}
 			type="checkbox"
 			aria-labelledby="checkbox"
-			style={checkboxStyle(height, width, disabled)}
+			css={checkboxStyle(height, width, disabled)}
 			disabled={disabled}
 			onChange={handleSelection} />
-
-
+			<label htmlFor="table-checkbox"></label>
+			</>
 	)
 }
 
-const checkboxStyle = (height: number | string, width: number | string, disabled?: boolean) => ({
+const checkboxStyle = (height: number | string, width: number | string, disabled?: boolean) => css({
 	cursor: disabled ? 'not-allowed' : 'pointer',
 	height,
 	width
