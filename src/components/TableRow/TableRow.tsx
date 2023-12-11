@@ -11,7 +11,7 @@ const TableRow = () => {
 
   //renders list of files
   return (
-    <div data-testid="table-row" role="rowgroup" css={overflow}>
+    <div data-testid="table-row" role="list" css={overflow}>
       {files.map((obj) => {
         const { id, selected, name, device, path, status } = obj
         return (

@@ -14,4 +14,10 @@ export const titleGridItem = css({
   alignItems: 'center',
   justifyContent: 'start',
   height: 50,
+  overflow: 'hidden',
+  '& > span': {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
 })

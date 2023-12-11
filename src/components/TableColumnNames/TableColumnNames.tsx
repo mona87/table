@@ -10,7 +10,7 @@ const TableColumnNames = () => {
       {columnNames.map((name, i) => {
         return (
           <div key={i} css={titleGridItem}>
-            {name}
+            <span>{name}</span>
           </div>
         )
       })}

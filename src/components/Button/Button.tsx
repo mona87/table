@@ -1,4 +1,4 @@
-import { buttonStyle, iconStyle } from './button.css'
+import { buttonStyle, iconStyle, wrapperStyle } from './button.css'
 
 const Button = ({
   children,
@@ -12,14 +12,7 @@ const Button = ({
   buttonHandler?: () => void
 }) => {
   return (
-    <button
-      type="button"
-      tabIndex={0}
-      aria-label={children}
-      css={buttonStyle(disabled)}
-      disabled={disabled}
-      onClick={buttonHandler}
-    >
+    <div css={wrapperStyle}>
       {icon ? (
         <div css={iconStyle(disabled)}>
           <img src={icon} alt="button-icon" height={30} width={30} />
@@ -27,8 +20,17 @@ const Button = ({
       ) : (
         false
       )}
-      {children}
-    </button>
+      <button
+        type="button"
+        tabIndex={0}
+        aria-label={children}
+        css={buttonStyle(disabled)}
+        disabled={disabled}
+        onClick={buttonHandler}
+      >
+        {children}
+      </button>
+    </div>
   )
 }
 

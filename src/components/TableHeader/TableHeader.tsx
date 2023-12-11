@@ -29,7 +29,7 @@ const TableHeader = () => {
   const handleSelection = () => dispatch({ type: 'UPDATE_ALL_CHECKBOXES' })
 
   return (
-    <section data-testid="table-header" role="row" css={{ width: '100%' }}>
+    <section data-testid="table-header" css={{ width: '100%' }}>
       <div css={tableHeaderStyle}>
         <div className="center" css={gridItem}>
           <CheckBox

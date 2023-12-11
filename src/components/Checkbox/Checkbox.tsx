@@ -35,10 +35,9 @@ const CheckBox = ({
     <input
       tabIndex={0}
       ref={checkboxRef}
-      id="table-checkbox"
       aria-checked={selected ? 'true' : !selected ? 'false' : 'mixed'}
       type="checkbox"
-      aria-labelledby="checkbox"
+      aria-label="checkbox"
       css={checkboxStyle(height, width, disabled)}
       disabled={disabled}
       onChange={handleSelection}

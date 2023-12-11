@@ -7,7 +7,6 @@ export const buttonStyle = (disabled?: boolean) =>
     fontSize: 18,
     background: 'transparent',
     border: 'none',
-    width: '210px',
     alignItems: 'center',
   })
 
@@ -18,5 +17,13 @@ export const iconStyle = (disabled?: boolean) =>
     justifyContent: 'center',
     opacity: disabled ? 0.5 : 1,
     width: 20,
-    marginRight: 20,
+    marginRight: 10,
+  })
+
+export const wrapperStyle = () =>
+  css({
+    display: 'flex',
+    alignItem: 'center',
+    flexDirection: 'row',
+    marginLeft: 10,
   })

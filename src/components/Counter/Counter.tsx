@@ -1,10 +1,13 @@
 import { counterStyle } from './counter.css'
 
 const Counter = ({ count }: { count: number }) => {
+  //render count
+  const handleCount = () =>
+    count === 0 ? 'None Selected' : `Selected ${count}`
+
   return (
-    //renders count
     <div css={counterStyle}>
-      {count === 0 ? 'None Selected' : `Selected ${count}`}
+      <span>{handleCount()}</span>
     </div>
   )
 }

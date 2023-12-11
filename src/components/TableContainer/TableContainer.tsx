@@ -7,10 +7,9 @@ import { useTableContext } from '../../context/tableContext'
 const TableContainer = () => {
   const { showAlert, files } = useTableContext()
 
-  //container for tabler
+  //container for table
   return (
     <div
-      role="table"
       aria-label="table component"
       css={containerStyle(showAlert, files.length)}
     >

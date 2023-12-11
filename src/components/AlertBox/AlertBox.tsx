@@ -31,7 +31,6 @@ const AlertBox = () => {
           .map(({ device, path, id }) => {
             return (
               <div key={id}>
-                {' '}
                 <span>{device}</span>
                 <span>{path}</span>
               </div>
