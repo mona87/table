@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-html,body{
+html,
+body {
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -7,7 +8,7 @@ html,body{
   background-color: #f0f8ff;
 }
 
-:root{
+:root {
   display: flex;
   align-items: center;
   justify-content: center;
