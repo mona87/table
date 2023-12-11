@@ -4,7 +4,7 @@ export const alertStyle = css({
   position: 'absolute',
   display: 'flex',
   flexDirection: 'column',
-  margin: 'auto 20px',
+  margin: 'auto',
   top: 0,
   left: 0,
   bottom: 0,
