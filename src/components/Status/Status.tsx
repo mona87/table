@@ -1,5 +1,5 @@
 
-import circle from '../assets/circle.svg'
+import circle from '../../assets/circle.svg'
 
 const Status = ({ type }: { type: string }) => {
 
@@ -12,7 +12,7 @@ const Status = ({ type }: { type: string }) => {
 			default: ''
 		}
 	}
-	return (<img src={handleStatusType(type)} />)
+	return (<img role="img" aria-label={type} src={handleStatusType(type)} />)
 }
 
 

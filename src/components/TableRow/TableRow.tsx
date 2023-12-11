@@ -1,19 +1,19 @@
-import CheckBox from "../Checkbox";
-import { useSelectionContext } from '../../tableContext';
-import Status from '../Status';
+import CheckBox from "../Checkbox/Checkbox";
+import { useTableContext } from '../../context/tableContext';
+import Status from '../Status/Status';
 
 const TableRow = () => {
 
-  const {selectionStore, showAlert, dispatch } = useSelectionContext();
+  const {selectionStore, showAlert, dispatch } = useTableContext();
 
   const handleSelection = (id: number) => dispatch({type: 'TOGGLE_CHECKBOX', payload: id})
 
   return (
-    <>
+    <div data-testid="table-row">
       {selectionStore.map(obj => {
         const { id, selected, name, device, path, status } = obj;
         return (
-          <div key={id} style={tableRowStyle(selected)}>
+          <div  role="listitem" key={id} style={tableRowStyle(selected)}>
             <CheckBox 
               disabled={showAlert} 
               selected={selected} 
@@ -28,7 +28,7 @@ const TableRow = () => {
           </div>
         )
       })}
-    </>
+    </div>
 
   )
 }

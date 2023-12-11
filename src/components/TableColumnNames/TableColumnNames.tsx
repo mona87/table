@@ -1,11 +1,11 @@
-import { useSelectionContext } from '../../tableContext';
+import { useTableContext } from '../../context/tableContext';
 
-const TableTitle = () => {
+const TableColumnNames = () => {
 
-	const { columnNames } = useSelectionContext();
+	const { columnNames } = useTableContext();
 
 	return (
-		<div style={tableTitleStyle}>
+		<div data-testid="table-column" style={tableTitleStyle}>
 			{columnNames.map((name, i) => {
 				return <div key={i} style={titleGridItem}>{name}</div>
 			})}
@@ -33,4 +33,4 @@ const titleGridItem = {
 }
 
 
-export default TableTitle;
+export default TableColumnNames;

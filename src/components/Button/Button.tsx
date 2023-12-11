@@ -1,13 +1,17 @@
 
 const Button = ({ children, disabled, buttonHandler }: {
-  children: React.ReactNode;
+  children: string;
   disabled?: boolean;
-  buttonHandler: () => void;
+  buttonHandler?: () => void;
 }
 ) => {
 
   return (
   <button 
+    role="button"
+    type="button"
+    tabIndex={0}
+    aria-label={children}
     style={buttonStyle(disabled)} 
     disabled={disabled} 
     onClick={buttonHandler}>

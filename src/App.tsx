@@ -1,9 +1,9 @@
 import './App.css'
-import TableContainer from './components/Table/TableContainer'
-import { SelectionInterface, SelectionContext, ActionTypes } from './tableContext';
+import TableContainer from './components/TableContainer/TableContainer'
+import { SelectionInterface, TableContext, ActionTypes } from './context/tableContext';
 import data from './data';
 import { useReducer, Dispatch, } from 'react';
-import reducer from './hook'
+import reducer from './context/reducer'
 
 export function App() {
 
@@ -22,9 +22,9 @@ export function App() {
   const [state, dispatch]: [SelectionInterface, Dispatch<ActionTypes>] = useReducer(reducer, initial);
 
   return (
-    <SelectionContext.Provider value={{ ...state, dispatch }}>
+    <TableContext.Provider value={{ ...state, dispatch }}>
       <TableContainer />
-    </SelectionContext.Provider>
+    </TableContext.Provider>
 
   )
 }

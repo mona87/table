@@ -32,6 +32,7 @@ const CheckBox = ({ selected, height, width, handleSelection, disabled }
 	return (
 		<label>
 			<input
+				role="checkbox"
 				ref={checkboxRef}
 				type="checkbox"
 				style={checkboxStyle(height, width, disabled)}

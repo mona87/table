@@ -1,15 +1,19 @@
-import Button from "./Button"
-import { useSelectionContext } from '../tableContext';
+import Button from "../Button/Button"
+import { useTableContext } from '../../context/tableContext';
 
 const AlertBox = () => {
 
-	const { selectionStore, dispatch } = useSelectionContext();
+	const { selectionStore, dispatch } = useTableContext();
 
 	const handleButton = () => dispatch({type: 'TOGGLE_ALERT', payload: false})
 
 	return (
-		<div style={alertStyle}>
-			<Button buttonHandler={handleButton}>X</Button>
+		<div 
+		role="alertdialog"
+		aria-labelledby="alertBox"
+		aria-describedby="alertForAvailableFiles"
+		style={alertStyle}>
+			<Button buttonHandler={handleButton}>Close</Button>
 			<section>
 				{selectionStore.filter(({ selected }) => selected === true)
 					.filter(({ status }) => status === 'Available')

@@ -11,7 +11,7 @@ const reducer = (state: SelectionInterface, action: ActionTypes) => {
             return { ...state, selectionStore: arr }
         }
 
-        case 'UPDATE_SELECT_ALL': {
+        case 'UPDATE_SELECT_ALL_CHECKBOX': {
             if (selectionStore.every(({ selected }) => selected === true)) {
                 return { ...state, selectAll: true }
             }

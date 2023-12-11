@@ -1,6 +1,6 @@
-import TableHeader from './TableHeader';
-import TableRow from './TableRow';
-import TableTitle from './TableTitle';
+import TableHeader from '../TableHeader/TableHeader';
+import TableRow from '../TableRow/TableRow';
+import TableTitle from '../TableColumnNames/TableColumnNames';
 
 const TableContainer = () => {
 

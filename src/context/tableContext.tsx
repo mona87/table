@@ -2,7 +2,7 @@ import { createContext, useContext,  } from "react";
 // import { SelectionContext}
 
 export type ActionTypes =
-  | { type: 'UPDATE_SELECT_ALL'; }
+  | { type: 'UPDATE_SELECT_ALL_CHECKBOX'; }
   | { type: 'UPDATE_CHECKBOX';  }
   | { type: 'UPDATE_COUNT'; }
   | { type: 'UPDATE_AVAILABLE_FILES'; }
@@ -26,7 +26,7 @@ export type SelectionInterface = {
     dispatch: (action:ActionTypes)=> void;
 }
 
-export const SelectionContext = createContext<SelectionInterface>({
+export const TableContext = createContext<SelectionInterface>({
     selectAll: false,
     showAlert: false,
     count: 0,
@@ -43,5 +43,5 @@ export const SelectionContext = createContext<SelectionInterface>({
     dispatch: () => {}
 });
 
-export const useSelectionContext = () => useContext(SelectionContext);
+export const useTableContext = () => useContext(TableContext);
 

@@ -1,16 +1,16 @@
-import { useSelectionContext } from '../../tableContext';
+import { useTableContext } from '../../context/tableContext';
 import { useEffect } from 'react';
-import CheckBox from "../Checkbox"
-import Counter from "../Counter";
-import AlertBox from '../AlertBox';
-import Button from '../Button';
+import CheckBox from "../Checkbox/Checkbox"
+import Counter from "../Counter/Counter";
+import AlertBox from '../AlertBox/AlertBox';
+import Button from '../Button/Button';
 
 const TableHeader = () => {
 
-	const { selectionStore, selectAll, showAlert, count, availableFiles, dispatch } = useSelectionContext()
+	const { selectionStore, selectAll, showAlert, count, availableFiles, dispatch } = useTableContext()
 
 	useEffect(() => {
-		dispatch({type: 'UPDATE_SELECT_ALL'})
+		dispatch({type: 'UPDATE_SELECT_ALL_CHECKBOX'})
 		dispatch({type: 'UPDATE_COUNT'})
 		dispatch({type: 'UPDATE_AVAILABLE_FILES'})
 	}, [selectionStore])
@@ -22,7 +22,7 @@ const TableHeader = () => {
 	const handleSelection = () => dispatch({type: 'UPDATE_CHECKBOX'})
 
 	return (
-		<section style={{ width: '100%' }}>
+		<section data-testid="table-header" style={{ width: '100%' }}>
 			<div style={tableHeaderStyle}>
 				<div style={gridItem}>
 					<CheckBox
